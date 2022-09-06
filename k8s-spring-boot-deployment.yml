@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jhooq-springboot
+  name: ram-springboot
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: jhooq-springboot
+      app: ram-springboot
   template:
     metadata:
       labels:
-        app: jhooq-springboot
+        app: ram-springboot
     spec:
       containers:
         - name: springboot
-          image: rahulwagh17/kubernetes:jhooq-k8s-springboot
+          image: ramdevops8080/my-app-demo:my-app-demo
 
           resources:
             requests:
@@ -55,11 +55,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jhooq-springboot
+  name: ram-springboot
 spec:
   type: NodePort
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: jhooq-springboot
+    app: ram-springboot
